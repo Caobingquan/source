@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generate.OpsArticleDao">
+  <resultMap id="BaseResultMap" type="generate.OpsArticle">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="aboreadonly" jdbcType="INTEGER" property="aboreadonly" />
+    <result column="aemtags" jdbcType="VARCHAR" property="aemtags" />
+    <result column="aemtagspath" jdbcType="VARCHAR" property="aemtagspath" />
+    <result column="allowidentities" jdbcType="VARCHAR" property="allowidentities" />
+    <result column="allowshare" jdbcType="INTEGER" property="allowshare" />
+    <result column="attachments" jdbcType="VARCHAR" property="attachments" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="baseid" jdbcType="VARCHAR" property="baseid" />
+    <result column="brands" jdbcType="VARCHAR" property="brands" />
+    <result column="category" jdbcType="VARCHAR" property="category" />
+    <result column="channel" jdbcType="VARCHAR" property="channel" />
+    <result column="classes" jdbcType="VARCHAR" property="classes" />
+    <result column="contenttag" jdbcType="VARCHAR" property="contenttag" />
+    <result column="customcategory" jdbcType="VARCHAR" property="customcategory" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="displaypublishtime" jdbcType="BIGINT" property="displaypublishtime" />
+    <result column="favoritetags" jdbcType="VARCHAR" property="favoritetags" />
+    <result column="host" jdbcType="VARCHAR" property="host" />
+    <result column="imagearraypath" jdbcType="VARCHAR" property="imagearraypath" />
+    <result column="jcrtitle" jdbcType="VARCHAR" property="jcrtitle" />
+    <result column="keywords" jdbcType="VARCHAR" property="keywords" />
+    <result column="labels" jdbcType="VARCHAR" property="labels" />
+    <result column="modifieddate" jdbcType="BIGINT" property="modifieddate" />
+    <result column="module" jdbcType="VARCHAR" property="module" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="nosearch" jdbcType="INTEGER" property="nosearch" />
+    <result column="originalimgpath" jdbcType="VARCHAR" property="originalimgpath" />
+    <result column="people" jdbcType="VARCHAR" property="people" />
+    <result column="promotion" jdbcType="BIGINT" property="promotion" />
+    <result column="publishdate" jdbcType="BIGINT" property="publishdate" />
+    <result column="searchtype" jdbcType="VARCHAR" property="searchtype" />
+    <result column="sentiments" jdbcType="VARCHAR" property="sentiments" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="strippedcontent" jdbcType="VARCHAR" property="strippedcontent" />
+    <result column="tags" jdbcType="VARCHAR" property="tags" />
+    <result column="tagspath" jdbcType="VARCHAR" property="tagspath" />
+    <result column="textdescription" jdbcType="VARCHAR" property="textdescription" />
+    <result column="thumbnail" jdbcType="VARCHAR" property="thumbnail" />
+    <result column="thumbnailbig" jdbcType="VARCHAR" property="thumbnailbig" />
+    <result column="thumbnailcontentapp" jdbcType="VARCHAR" property="thumbnailcontentapp" />
+    <result column="thumbnailthree" jdbcType="VARCHAR" property="thumbnailthree" />
+    <result column="thumbnailtype" jdbcType="VARCHAR" property="thumbnailtype" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="video_fhd" jdbcType="VARCHAR" property="videoFhd" />
+    <result column="video_hd" jdbcType="VARCHAR" property="videoHd" />
+    <result column="video_height" jdbcType="VARCHAR" property="videoHeight" />
+    <result column="video_low" jdbcType="VARCHAR" property="videoLow" />
+    <result column="video_sd" jdbcType="VARCHAR" property="videoSd" />
+    <result column="video_super" jdbcType="VARCHAR" property="videoSuper" />
+    <result column="videoid" jdbcType="VARCHAR" property="videoid" />
+    <result column="videoimgsurl" jdbcType="VARCHAR" property="videoimgsurl" />
+    <result column="videolen" jdbcType="INTEGER" property="videolen" />
+    <result column="videopath" jdbcType="VARCHAR" property="videopath" />
+    <result column="videoposter" jdbcType="VARCHAR" property="videoposter" />
+    <result column="videotitle" jdbcType="VARCHAR" property="videotitle" />
+    <result column="views" jdbcType="INTEGER" property="views" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, aboreadonly, aemtags, aemtagspath, allowidentities, allowshare, attachments, 
+    author, baseid, brands, category, channel, classes, contenttag, customcategory, description, 
+    displaypublishtime, favoritetags, `host`, imagearraypath, jcrtitle, keywords, labels, 
+    modifieddate, `module`, `name`, nosearch, originalimgpath, people, promotion, publishdate, 
+    searchtype, sentiments, `source`, strippedcontent, tags, tagspath, textdescription, 
+    thumbnail, thumbnailbig, thumbnailcontentapp, thumbnailthree, thumbnailtype, title, 
+    url, video_fhd, video_hd, video_height, video_low, video_sd, video_super, videoid, 
+    videoimgsurl, videolen, videopath, videoposter, videotitle, views, `status`, update_time, 
+    create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ops_article
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ops_article
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="generate.OpsArticle" useGeneratedKeys="true">
+    insert into ops_article (aboreadonly, aemtags, aemtagspath, 
+      allowidentities, allowshare, attachments, 
+      author, baseid, brands, 
+      category, channel, classes, 
+      contenttag, customcategory, description, 
+      displaypublishtime, favoritetags, `host`, 
+      imagearraypath, jcrtitle, keywords, 
+      labels, modifieddate, `module`, 
+      `name`, nosearch, originalimgpath, 
+      people, promotion, publishdate, 
+      searchtype, sentiments, `source`, 
+      strippedcontent, tags, tagspath, 
+      textdescription, thumbnail, thumbnailbig, 
+      thumbnailcontentapp, thumbnailthree, thumbnailtype, 
+      title, url, video_fhd, 
+      video_hd, video_height, video_low, 
+      video_sd, video_super, videoid, 
+      videoimgsurl, videolen, videopath, 
+      videoposter, videotitle, views, 
+      `status`, update_time, create_time
+      )
+    values (#{aboreadonly,jdbcType=INTEGER}, #{aemtags,jdbcType=VARCHAR}, #{aemtagspath,jdbcType=VARCHAR}, 
+      #{allowidentities,jdbcType=VARCHAR}, #{allowshare,jdbcType=INTEGER}, #{attachments,jdbcType=VARCHAR}, 
+      #{author,jdbcType=VARCHAR}, #{baseid,jdbcType=VARCHAR}, #{brands,jdbcType=VARCHAR}, 
+      #{category,jdbcType=VARCHAR}, #{channel,jdbcType=VARCHAR}, #{classes,jdbcType=VARCHAR}, 
+      #{contenttag,jdbcType=VARCHAR}, #{customcategory,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{displaypublishtime,jdbcType=BIGINT}, #{favoritetags,jdbcType=VARCHAR}, #{host,jdbcType=VARCHAR}, 
+      #{imagearraypath,jdbcType=VARCHAR}, #{jcrtitle,jdbcType=VARCHAR}, #{keywords,jdbcType=VARCHAR}, 
+      #{labels,jdbcType=VARCHAR}, #{modifieddate,jdbcType=BIGINT}, #{module,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{nosearch,jdbcType=INTEGER}, #{originalimgpath,jdbcType=VARCHAR}, 
+      #{people,jdbcType=VARCHAR}, #{promotion,jdbcType=BIGINT}, #{publishdate,jdbcType=BIGINT}, 
+      #{searchtype,jdbcType=VARCHAR}, #{sentiments,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, 
+      #{strippedcontent,jdbcType=VARCHAR}, #{tags,jdbcType=VARCHAR}, #{tagspath,jdbcType=VARCHAR}, 
+      #{textdescription,jdbcType=VARCHAR}, #{thumbnail,jdbcType=VARCHAR}, #{thumbnailbig,jdbcType=VARCHAR}, 
+      #{thumbnailcontentapp,jdbcType=VARCHAR}, #{thumbnailthree,jdbcType=VARCHAR}, #{thumbnailtype,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{videoFhd,jdbcType=VARCHAR}, 
+      #{videoHd,jdbcType=VARCHAR}, #{videoHeight,jdbcType=VARCHAR}, #{videoLow,jdbcType=VARCHAR}, 
+      #{videoSd,jdbcType=VARCHAR}, #{videoSuper,jdbcType=VARCHAR}, #{videoid,jdbcType=VARCHAR}, 
+      #{videoimgsurl,jdbcType=VARCHAR}, #{videolen,jdbcType=INTEGER}, #{videopath,jdbcType=VARCHAR}, 
+      #{videoposter,jdbcType=VARCHAR}, #{videotitle,jdbcType=VARCHAR}, #{views,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="generate.OpsArticle" useGeneratedKeys="true">
+    insert into ops_article
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="aboreadonly != null">
+        aboreadonly,
+      </if>
+      <if test="aemtags != null">
+        aemtags,
+      </if>
+      <if test="aemtagspath != null">
+        aemtagspath,
+      </if>
+      <if test="allowidentities != null">
+        allowidentities,
+      </if>
+      <if test="allowshare != null">
+        allowshare,
+      </if>
+      <if test="attachments != null">
+        attachments,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="baseid != null">
+        baseid,
+      </if>
+      <if test="brands != null">
+        brands,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="channel != null">
+        channel,
+      </if>
+      <if test="classes != null">
+        classes,
+      </if>
+      <if test="contenttag != null">
+        contenttag,
+      </if>
+      <if test="customcategory != null">
+        customcategory,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="displaypublishtime != null">
+        displaypublishtime,
+      </if>
+      <if test="favoritetags != null">
+        favoritetags,
+      </if>
+      <if test="host != null">
+        `host`,
+      </if>
+      <if test="imagearraypath != null">
+        imagearraypath,
+      </if>
+      <if test="jcrtitle != null">
+        jcrtitle,
+      </if>
+      <if test="keywords != null">
+        keywords,
+      </if>
+      <if test="labels != null">
+        labels,
+      </if>
+      <if test="modifieddate != null">
+        modifieddate,
+      </if>
+      <if test="module != null">
+        `module`,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="nosearch != null">
+        nosearch,
+      </if>
+      <if test="originalimgpath != null">
+        originalimgpath,
+      </if>
+      <if test="people != null">
+        people,
+      </if>
+      <if test="promotion != null">
+        promotion,
+      </if>
+      <if test="publishdate != null">
+        publishdate,
+      </if>
+      <if test="searchtype != null">
+        searchtype,
+      </if>
+      <if test="sentiments != null">
+        sentiments,
+      </if>
+      <if test="source != null">
+        `source`,
+      </if>
+      <if test="strippedcontent != null">
+        strippedcontent,
+      </if>
+      <if test="tags != null">
+        tags,
+      </if>
+      <if test="tagspath != null">
+        tagspath,
+      </if>
+      <if test="textdescription != null">
+        textdescription,
+      </if>
+      <if test="thumbnail != null">
+        thumbnail,
+      </if>
+      <if test="thumbnailbig != null">
+        thumbnailbig,
+      </if>
+      <if test="thumbnailcontentapp != null">
+        thumbnailcontentapp,
+      </if>
+      <if test="thumbnailthree != null">
+        thumbnailthree,
+      </if>
+      <if test="thumbnailtype != null">
+        thumbnailtype,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="videoFhd != null">
+        video_fhd,
+      </if>
+      <if test="videoHd != null">
+        video_hd,
+      </if>
+      <if test="videoHeight != null">
+        video_height,
+      </if>
+      <if test="videoLow != null">
+        video_low,
+      </if>
+      <if test="videoSd != null">
+        video_sd,
+      </if>
+      <if test="videoSuper != null">
+        video_super,
+      </if>
+      <if test="videoid != null">
+        videoid,
+      </if>
+      <if test="videoimgsurl != null">
+        videoimgsurl,
+      </if>
+      <if test="videolen != null">
+        videolen,
+      </if>
+      <if test="videopath != null">
+        videopath,
+      </if>
+      <if test="videoposter != null">
+        videoposter,
+      </if>
+      <if test="videotitle != null">
+        videotitle,
+      </if>
+      <if test="views != null">
+        views,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="aboreadonly != null">
+        #{aboreadonly,jdbcType=INTEGER},
+      </if>
+      <if test="aemtags != null">
+        #{aemtags,jdbcType=VARCHAR},
+      </if>
+      <if test="aemtagspath != null">
+        #{aemtagspath,jdbcType=VARCHAR},
+      </if>
+      <if test="allowidentities != null">
+        #{allowidentities,jdbcType=VARCHAR},
+      </if>
+      <if test="allowshare != null">
+        #{allowshare,jdbcType=INTEGER},
+      </if>
+      <if test="attachments != null">
+        #{attachments,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="baseid != null">
+        #{baseid,jdbcType=VARCHAR},
+      </if>
+      <if test="brands != null">
+        #{brands,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="classes != null">
+        #{classes,jdbcType=VARCHAR},
+      </if>
+      <if test="contenttag != null">
+        #{contenttag,jdbcType=VARCHAR},
+      </if>
+      <if test="customcategory != null">
+        #{customcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="displaypublishtime != null">
+        #{displaypublishtime,jdbcType=BIGINT},
+      </if>
+      <if test="favoritetags != null">
+        #{favoritetags,jdbcType=VARCHAR},
+      </if>
+      <if test="host != null">
+        #{host,jdbcType=VARCHAR},
+      </if>
+      <if test="imagearraypath != null">
+        #{imagearraypath,jdbcType=VARCHAR},
+      </if>
+      <if test="jcrtitle != null">
+        #{jcrtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="keywords != null">
+        #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="labels != null">
+        #{labels,jdbcType=VARCHAR},
+      </if>
+      <if test="modifieddate != null">
+        #{modifieddate,jdbcType=BIGINT},
+      </if>
+      <if test="module != null">
+        #{module,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nosearch != null">
+        #{nosearch,jdbcType=INTEGER},
+      </if>
+      <if test="originalimgpath != null">
+        #{originalimgpath,jdbcType=VARCHAR},
+      </if>
+      <if test="people != null">
+        #{people,jdbcType=VARCHAR},
+      </if>
+      <if test="promotion != null">
+        #{promotion,jdbcType=BIGINT},
+      </if>
+      <if test="publishdate != null">
+        #{publishdate,jdbcType=BIGINT},
+      </if>
+      <if test="searchtype != null">
+        #{searchtype,jdbcType=VARCHAR},
+      </if>
+      <if test="sentiments != null">
+        #{sentiments,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="strippedcontent != null">
+        #{strippedcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="tagspath != null">
+        #{tagspath,jdbcType=VARCHAR},
+      </if>
+      <if test="textdescription != null">
+        #{textdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbnail != null">
+        #{thumbnail,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbnailbig != null">
+        #{thumbnailbig,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbnailcontentapp != null">
+        #{thumbnailcontentapp,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbnailthree != null">
+        #{thumbnailthree,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbnailtype != null">
+        #{thumbnailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="videoFhd != null">
+        #{videoFhd,jdbcType=VARCHAR},
+      </if>
+      <if test="videoHd != null">
+        #{videoHd,jdbcType=VARCHAR},
+      </if>
+      <if test="videoHeight != null">
+        #{videoHeight,jdbcType=VARCHAR},
+      </if>
+      <if test="videoLow != null">
+        #{videoLow,jdbcType=VARCHAR},
+      </if>
+      <if test="videoSd != null">
+        #{videoSd,jdbcType=VARCHAR},
+      </if>
+      <if test="videoSuper != null">
+        #{videoSuper,jdbcType=VARCHAR},
+      </if>
+      <if test="videoid != null">
+        #{videoid,jdbcType=VARCHAR},
+      </if>
+      <if test="videoimgsurl != null">
+        #{videoimgsurl,jdbcType=VARCHAR},
+      </if>
+      <if test="videolen != null">
+        #{videolen,jdbcType=INTEGER},
+      </if>
+      <if test="videopath != null">
+        #{videopath,jdbcType=VARCHAR},
+      </if>
+      <if test="videoposter != null">
+        #{videoposter,jdbcType=VARCHAR},
+      </if>
+      <if test="videotitle != null">
+        #{videotitle,jdbcType=VARCHAR},
+      </if>
+      <if test="views != null">
+        #{views,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="generate.OpsArticle">
+    update ops_article
+    <set>
+      <if test="aboreadonly != null">
+        aboreadonly = #{aboreadonly,jdbcType=INTEGER},
+      </if>
+      <if test="aemtags != null">
+        aemtags = #{aemtags,jdbcType=VARCHAR},
+      </if>
+      <if test="aemtagspath != null">
+        aemtagspath = #{aemtagspath,jdbcType=VARCHAR},
+      </if>
+      <if test="allowidentities != null">
+        allowidentities = #{allowidentities,jdbcType=VARCHAR},
+      </if>
+      <if test="allowshare != null">
+        allowshare = #{allowshare,jdbcType=INTEGER},
+      </if>
+      <if test="attachments != null">
+        attachments = #{attachments,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="baseid != null">
+        baseid = #{baseid,jdbcType=VARCHAR},
+      </if>
+      <if test="brands != null">
+        brands = #{brands,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="channel != null">
+        channel = #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="classes != null">
+        classes = #{classes,jdbcType=VARCHAR},
+      </if>
+      <if test="contenttag != null">
+        contenttag = #{contenttag,jdbcType=VARCHAR},
+      </if>
+      <if test="customcategory != null">
+        customcategory = #{customcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="displaypublishtime != null">
+        displaypublishtime = #{displaypublishtime,jdbcType=BIGINT},
+      </if>
+      <if test="favoritetags != null">
+        favoritetags = #{favoritetags,jdbcType=VARCHAR},
+      </if>
+      <if test="host != null">
+        `host` = #{host,jdbcType=VARCHAR},
+      </if>
+      <if test="imagearraypath != null">
+        imagearraypath = #{imagearraypath,jdbcType=VARCHAR},
+      </if>
+      <if test="jcrtitle != null">
+        jcrtitle = #{jcrtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="keywords != null">
+        keywords = #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="labels != null">
+        labels = #{labels,jdbcType=VARCHAR},
+      </if>
+      <if test="modifieddate != null">
+        modifieddate = #{modifieddate,jdbcType=BIGINT},
+      </if>
+      <if test="module != null">
+        `module` = #{module,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nosearch != null">
+        nosearch = #{nosearch,jdbcType=INTEGER},
+      </if>
+      <if test="originalimgpath != null">
+        originalimgpath = #{originalimgpath,jdbcType=VARCHAR},
+      </if>
+      <if test="people != null">
+        people = #{people,jdbcType=VARCHAR},
+      </if>
+      <if test="promotion != null">
+        promotion = #{promotion,jdbcType=BIGINT},
+      </if>
+      <if test="publishdate != null">
+        publishdate = #{publishdate,jdbcType=BIGINT},
+      </if>
+      <if test="searchtype != null">
+        searchtype = #{searchtype,jdbcType=VARCHAR},
+      </if>
+      <if test="sentiments != null">
+        sentiments = #{sentiments,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        `source` = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="strippedcontent != null">
+        strippedcontent = #{strippedcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        tags = #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="tagspath != null">
+        tagspath = #{tagspath,jdbcType=VARCHAR},
+      </if>
+      <if test="textdescription != null">
+        textdescription = #{textdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbnail != null">
+        thumbnail = #{thumbnail,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbnailbig != null">
+        thumbnailbig = #{thumbnailbig,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbnailcontentapp != null">
+        thumbnailcontentapp = #{thumbnailcontentapp,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbnailthree != null">
+        thumbnailthree = #{thumbnailthree,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbnailtype != null">
+        thumbnailtype = #{thumbnailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="videoFhd != null">
+        video_fhd = #{videoFhd,jdbcType=VARCHAR},
+      </if>
+      <if test="videoHd != null">
+        video_hd = #{videoHd,jdbcType=VARCHAR},
+      </if>
+      <if test="videoHeight != null">
+        video_height = #{videoHeight,jdbcType=VARCHAR},
+      </if>
+      <if test="videoLow != null">
+        video_low = #{videoLow,jdbcType=VARCHAR},
+      </if>
+      <if test="videoSd != null">
+        video_sd = #{videoSd,jdbcType=VARCHAR},
+      </if>
+      <if test="videoSuper != null">
+        video_super = #{videoSuper,jdbcType=VARCHAR},
+      </if>
+      <if test="videoid != null">
+        videoid = #{videoid,jdbcType=VARCHAR},
+      </if>
+      <if test="videoimgsurl != null">
+        videoimgsurl = #{videoimgsurl,jdbcType=VARCHAR},
+      </if>
+      <if test="videolen != null">
+        videolen = #{videolen,jdbcType=INTEGER},
+      </if>
+      <if test="videopath != null">
+        videopath = #{videopath,jdbcType=VARCHAR},
+      </if>
+      <if test="videoposter != null">
+        videoposter = #{videoposter,jdbcType=VARCHAR},
+      </if>
+      <if test="videotitle != null">
+        videotitle = #{videotitle,jdbcType=VARCHAR},
+      </if>
+      <if test="views != null">
+        views = #{views,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="generate.OpsArticle">
+    update ops_article
+    set aboreadonly = #{aboreadonly,jdbcType=INTEGER},
+      aemtags = #{aemtags,jdbcType=VARCHAR},
+      aemtagspath = #{aemtagspath,jdbcType=VARCHAR},
+      allowidentities = #{allowidentities,jdbcType=VARCHAR},
+      allowshare = #{allowshare,jdbcType=INTEGER},
+      attachments = #{attachments,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      baseid = #{baseid,jdbcType=VARCHAR},
+      brands = #{brands,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR},
+      channel = #{channel,jdbcType=VARCHAR},
+      classes = #{classes,jdbcType=VARCHAR},
+      contenttag = #{contenttag,jdbcType=VARCHAR},
+      customcategory = #{customcategory,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      displaypublishtime = #{displaypublishtime,jdbcType=BIGINT},
+      favoritetags = #{favoritetags,jdbcType=VARCHAR},
+      `host` = #{host,jdbcType=VARCHAR},
+      imagearraypath = #{imagearraypath,jdbcType=VARCHAR},
+      jcrtitle = #{jcrtitle,jdbcType=VARCHAR},
+      keywords = #{keywords,jdbcType=VARCHAR},
+      labels = #{labels,jdbcType=VARCHAR},
+      modifieddate = #{modifieddate,jdbcType=BIGINT},
+      `module` = #{module,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      nosearch = #{nosearch,jdbcType=INTEGER},
+      originalimgpath = #{originalimgpath,jdbcType=VARCHAR},
+      people = #{people,jdbcType=VARCHAR},
+      promotion = #{promotion,jdbcType=BIGINT},
+      publishdate = #{publishdate,jdbcType=BIGINT},
+      searchtype = #{searchtype,jdbcType=VARCHAR},
+      sentiments = #{sentiments,jdbcType=VARCHAR},
+      `source` = #{source,jdbcType=VARCHAR},
+      strippedcontent = #{strippedcontent,jdbcType=VARCHAR},
+      tags = #{tags,jdbcType=VARCHAR},
+      tagspath = #{tagspath,jdbcType=VARCHAR},
+      textdescription = #{textdescription,jdbcType=VARCHAR},
+      thumbnail = #{thumbnail,jdbcType=VARCHAR},
+      thumbnailbig = #{thumbnailbig,jdbcType=VARCHAR},
+      thumbnailcontentapp = #{thumbnailcontentapp,jdbcType=VARCHAR},
+      thumbnailthree = #{thumbnailthree,jdbcType=VARCHAR},
+      thumbnailtype = #{thumbnailtype,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      video_fhd = #{videoFhd,jdbcType=VARCHAR},
+      video_hd = #{videoHd,jdbcType=VARCHAR},
+      video_height = #{videoHeight,jdbcType=VARCHAR},
+      video_low = #{videoLow,jdbcType=VARCHAR},
+      video_sd = #{videoSd,jdbcType=VARCHAR},
+      video_super = #{videoSuper,jdbcType=VARCHAR},
+      videoid = #{videoid,jdbcType=VARCHAR},
+      videoimgsurl = #{videoimgsurl,jdbcType=VARCHAR},
+      videolen = #{videolen,jdbcType=INTEGER},
+      videopath = #{videopath,jdbcType=VARCHAR},
+      videoposter = #{videoposter,jdbcType=VARCHAR},
+      videotitle = #{videotitle,jdbcType=VARCHAR},
+      views = #{views,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

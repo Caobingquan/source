@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generate.OpsMediaDao">
+  <resultMap id="BaseResultMap" type="generate.OpsMedia">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="alignmentstyle" jdbcType="VARCHAR" property="alignmentstyle" />
+    <result column="host" jdbcType="VARCHAR" property="host" />
+    <result column="interimage" jdbcType="VARCHAR" property="interimage" />
+    <result column="interimage1280" jdbcType="VARCHAR" property="interimage1280" />
+    <result column="interimage140" jdbcType="VARCHAR" property="interimage140" />
+    <result column="interimage319" jdbcType="VARCHAR" property="interimage319" />
+    <result column="interimage48" jdbcType="VARCHAR" property="interimage48" />
+    <result column="isactivated" jdbcType="VARCHAR" property="isactivated" />
+    <result column="keywords" jdbcType="VARCHAR" property="keywords" />
+    <result column="link" jdbcType="VARCHAR" property="link" />
+    <result column="modifieddate" jdbcType="BIGINT" property="modifieddate" />
+    <result column="photopath" jdbcType="VARCHAR" property="photopath" />
+    <result column="phototype" jdbcType="VARCHAR" property="phototype" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="producttype" jdbcType="VARCHAR" property="producttype" />
+    <result column="publishdate" jdbcType="BIGINT" property="publishdate" />
+    <result column="strippedcontent" jdbcType="VARCHAR" property="strippedcontent" />
+    <result column="tags" jdbcType="VARCHAR" property="tags" />
+    <result column="tagspath" jdbcType="VARCHAR" property="tagspath" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="views" jdbcType="INTEGER" property="views" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, alignmentstyle, `host`, interimage, interimage1280, interimage140, interimage319, 
+    interimage48, isactivated, keywords, link, modifieddate, photopath, phototype, productid, 
+    producttype, publishdate, strippedcontent, tags, tagspath, title, url, views, `status`, 
+    update_time, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ops_media
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ops_media
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="generate.OpsMedia" useGeneratedKeys="true">
+    insert into ops_media (alignmentstyle, `host`, interimage, 
+      interimage1280, interimage140, interimage319, 
+      interimage48, isactivated, keywords, 
+      link, modifieddate, photopath, 
+      phototype, productid, producttype, 
+      publishdate, strippedcontent, tags, 
+      tagspath, title, url, 
+      views, `status`, update_time, 
+      create_time)
+    values (#{alignmentstyle,jdbcType=VARCHAR}, #{host,jdbcType=VARCHAR}, #{interimage,jdbcType=VARCHAR}, 
+      #{interimage1280,jdbcType=VARCHAR}, #{interimage140,jdbcType=VARCHAR}, #{interimage319,jdbcType=VARCHAR}, 
+      #{interimage48,jdbcType=VARCHAR}, #{isactivated,jdbcType=VARCHAR}, #{keywords,jdbcType=VARCHAR}, 
+      #{link,jdbcType=VARCHAR}, #{modifieddate,jdbcType=BIGINT}, #{photopath,jdbcType=VARCHAR}, 
+      #{phototype,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, #{producttype,jdbcType=VARCHAR}, 
+      #{publishdate,jdbcType=BIGINT}, #{strippedcontent,jdbcType=VARCHAR}, #{tags,jdbcType=VARCHAR}, 
+      #{tagspath,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{views,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="generate.OpsMedia" useGeneratedKeys="true">
+    insert into ops_media
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="alignmentstyle != null">
+        alignmentstyle,
+      </if>
+      <if test="host != null">
+        `host`,
+      </if>
+      <if test="interimage != null">
+        interimage,
+      </if>
+      <if test="interimage1280 != null">
+        interimage1280,
+      </if>
+      <if test="interimage140 != null">
+        interimage140,
+      </if>
+      <if test="interimage319 != null">
+        interimage319,
+      </if>
+      <if test="interimage48 != null">
+        interimage48,
+      </if>
+      <if test="isactivated != null">
+        isactivated,
+      </if>
+      <if test="keywords != null">
+        keywords,
+      </if>
+      <if test="link != null">
+        link,
+      </if>
+      <if test="modifieddate != null">
+        modifieddate,
+      </if>
+      <if test="photopath != null">
+        photopath,
+      </if>
+      <if test="phototype != null">
+        phototype,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="producttype != null">
+        producttype,
+      </if>
+      <if test="publishdate != null">
+        publishdate,
+      </if>
+      <if test="strippedcontent != null">
+        strippedcontent,
+      </if>
+      <if test="tags != null">
+        tags,
+      </if>
+      <if test="tagspath != null">
+        tagspath,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="views != null">
+        views,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="alignmentstyle != null">
+        #{alignmentstyle,jdbcType=VARCHAR},
+      </if>
+      <if test="host != null">
+        #{host,jdbcType=VARCHAR},
+      </if>
+      <if test="interimage != null">
+        #{interimage,jdbcType=VARCHAR},
+      </if>
+      <if test="interimage1280 != null">
+        #{interimage1280,jdbcType=VARCHAR},
+      </if>
+      <if test="interimage140 != null">
+        #{interimage140,jdbcType=VARCHAR},
+      </if>
+      <if test="interimage319 != null">
+        #{interimage319,jdbcType=VARCHAR},
+      </if>
+      <if test="interimage48 != null">
+        #{interimage48,jdbcType=VARCHAR},
+      </if>
+      <if test="isactivated != null">
+        #{isactivated,jdbcType=VARCHAR},
+      </if>
+      <if test="keywords != null">
+        #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null">
+        #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="modifieddate != null">
+        #{modifieddate,jdbcType=BIGINT},
+      </if>
+      <if test="photopath != null">
+        #{photopath,jdbcType=VARCHAR},
+      </if>
+      <if test="phototype != null">
+        #{phototype,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="producttype != null">
+        #{producttype,jdbcType=VARCHAR},
+      </if>
+      <if test="publishdate != null">
+        #{publishdate,jdbcType=BIGINT},
+      </if>
+      <if test="strippedcontent != null">
+        #{strippedcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="tagspath != null">
+        #{tagspath,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="views != null">
+        #{views,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="generate.OpsMedia">
+    update ops_media
+    <set>
+      <if test="alignmentstyle != null">
+        alignmentstyle = #{alignmentstyle,jdbcType=VARCHAR},
+      </if>
+      <if test="host != null">
+        `host` = #{host,jdbcType=VARCHAR},
+      </if>
+      <if test="interimage != null">
+        interimage = #{interimage,jdbcType=VARCHAR},
+      </if>
+      <if test="interimage1280 != null">
+        interimage1280 = #{interimage1280,jdbcType=VARCHAR},
+      </if>
+      <if test="interimage140 != null">
+        interimage140 = #{interimage140,jdbcType=VARCHAR},
+      </if>
+      <if test="interimage319 != null">
+        interimage319 = #{interimage319,jdbcType=VARCHAR},
+      </if>
+      <if test="interimage48 != null">
+        interimage48 = #{interimage48,jdbcType=VARCHAR},
+      </if>
+      <if test="isactivated != null">
+        isactivated = #{isactivated,jdbcType=VARCHAR},
+      </if>
+      <if test="keywords != null">
+        keywords = #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null">
+        link = #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="modifieddate != null">
+        modifieddate = #{modifieddate,jdbcType=BIGINT},
+      </if>
+      <if test="photopath != null">
+        photopath = #{photopath,jdbcType=VARCHAR},
+      </if>
+      <if test="phototype != null">
+        phototype = #{phototype,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        productid = #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="producttype != null">
+        producttype = #{producttype,jdbcType=VARCHAR},
+      </if>
+      <if test="publishdate != null">
+        publishdate = #{publishdate,jdbcType=BIGINT},
+      </if>
+      <if test="strippedcontent != null">
+        strippedcontent = #{strippedcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        tags = #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="tagspath != null">
+        tagspath = #{tagspath,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="views != null">
+        views = #{views,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="generate.OpsMedia">
+    update ops_media
+    set alignmentstyle = #{alignmentstyle,jdbcType=VARCHAR},
+      `host` = #{host,jdbcType=VARCHAR},
+      interimage = #{interimage,jdbcType=VARCHAR},
+      interimage1280 = #{interimage1280,jdbcType=VARCHAR},
+      interimage140 = #{interimage140,jdbcType=VARCHAR},
+      interimage319 = #{interimage319,jdbcType=VARCHAR},
+      interimage48 = #{interimage48,jdbcType=VARCHAR},
+      isactivated = #{isactivated,jdbcType=VARCHAR},
+      keywords = #{keywords,jdbcType=VARCHAR},
+      link = #{link,jdbcType=VARCHAR},
+      modifieddate = #{modifieddate,jdbcType=BIGINT},
+      photopath = #{photopath,jdbcType=VARCHAR},
+      phototype = #{phototype,jdbcType=VARCHAR},
+      productid = #{productid,jdbcType=VARCHAR},
+      producttype = #{producttype,jdbcType=VARCHAR},
+      publishdate = #{publishdate,jdbcType=BIGINT},
+      strippedcontent = #{strippedcontent,jdbcType=VARCHAR},
+      tags = #{tags,jdbcType=VARCHAR},
+      tagspath = #{tagspath,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      views = #{views,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
