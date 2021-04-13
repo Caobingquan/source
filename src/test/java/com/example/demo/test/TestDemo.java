@@ -204,12 +204,21 @@ public class TestDemo {
             de.setSku(""+i);
             abc.add(de);
         }
+        abc.add(null);
+        List<String> strings = abc.stream().map(df -> null != df ? df.getSku() : null).collect(Collectors.toList());
 
         List<Demo> collect2 = abc.stream().filter(a -> a.getSku().length() < 2).collect(Collectors.toList());
         collect2.get(0).setSku("66666");
         System.out.println(collect2.get(0).getSku());
         System.out.println(abc.get(0).getSku());
-
+        List<String> aa= new ArrayList<>();
+        aa.add("aaaa");
+        aa.add("bbbb");
+        aa.add("cccc");
+        List<String> l = aa.stream().map(s -> StringUtils.replace("dfdf:{SKU}", "{SKU}", s))
+                .collect(Collectors.toList());
+        System.out.println(aa.toString());
+        System.out.println(l.toString());
     }
     /**
      * list为null,foreach方法会空指针异常，
