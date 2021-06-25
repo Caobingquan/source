@@ -41,8 +41,4 @@ public class TagSearchDTO
     * 优先级
     */
    private Integer priority;
-   /**
-    * 可见页面
-    */
-   private List<String> visiblePages;
 }

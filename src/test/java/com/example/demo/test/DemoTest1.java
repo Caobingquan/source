@@ -28,22 +28,7 @@ import java.util.stream.Stream;
  */
 @Slf4j
 public class DemoTest1 {
-    @Test
-    void a1() {
-        Stream.iterate(new int[]{0, 1}, n -> new int[]{n[1], n[0] + n[1]})
-                .limit(20)
-                .map(n -> n[0])
-                .forEach(x -> System.out.println(x));
-    }
-    @Test
-    void a2() {
-        String body = HttpRequest
-                .get("localhost:8080/v2/search/superapp/superapp-product/product?keyword=纽崔莱&pageNo=1&pageSize=10&startIndex=0&sortProperty=price&sortType=asc&summary=product_name&productChannel=HUB&fromRequestId=161104179116780038898731")
-                .execute().body();
-        SearchProductDTO searchProductDTO = JSON.parseObject(JSON.toJSONString(JSON.parseObject(body).getJSONObject("results").getJSONArray("items").get(0)), SearchProductDTO.class);
-        System.out.println(searchProductDTO.getTagList());
-        System.out.println(body);
-    }
+
     @Test
     void a3() {
         String inddex = "query=default:'纽崔莱' AND tags:'纽崔莱'";
